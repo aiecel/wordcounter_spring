@@ -1,0 +1,65 @@
+.btn-table {
+    white-space: nowrap;
+}
+
+#main-header {
+    font-size: 60px;
+    text-align: center;
+    margin: 100px auto auto;
+}
+
+#main-url-form {
+    padding: 20px;
+    margin: auto;
+    max-width: 900px;
+}
+
+#main-url-form-alert {
+    margin-top: 20px;
+}
+
+#words-page-header-div {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#words-page-header {
+    text-align: center;
+    margin: auto;
+}
+
+#words-page-sub-header {
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+    margin: auto;
+}
+
+#header-link {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+#words-table {
+    padding: 20px;
+    margin: auto;
+    max-width: 500px;
+}
+
+#words-page-info {
+    margin: 15px auto;
+    max-width: 900px;
+}
+
+#words-page-warning {
+    margin: 15px auto;
+    max-width: 900px;
+}
+
+#words-table td, #words-table th {
+    text-align: center;
+    vertical-align: middle;
+}
