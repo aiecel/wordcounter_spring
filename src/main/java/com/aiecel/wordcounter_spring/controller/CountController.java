@@ -88,18 +88,7 @@ public class CountController {
         page.clearWords();
 
         //put counted words to page
-        Collection<Word> countedWords = new ArrayList<>();
-        logger.info("Counted words for url {}:", url);
-        for (Map.Entry<String, Integer> wordOccurrences : wordCounter.getAllOccurrences().entrySet()) {
-            countedWords.add(
-                    new Word()
-                            .setPage(page)
-                            .setWord(wordOccurrences.getKey())
-                            .setOccurrences(wordOccurrences.getValue())
-            );
-            logger.info("{}: {}", wordOccurrences.getKey(), wordOccurrences.getValue());
-        }
-        page.addAllWords(countedWords);
+        page.addAllWords(constructWordCollectionFromMap(wordCounter.getAllOccurrences(), page));
 
         //save page
         pageService.save(page);
@@ -115,5 +104,20 @@ public class CountController {
 
         redirectAttributes.addAttribute("url", url);
         return new ModelAndView("redirect:/words");
+    }
+
+    private Collection<Word> constructWordCollectionFromMap(Map<String, Integer> wordOccurrences, Page page) {
+        logger.info("Counted words for url {}:", page.getUrl());
+        Collection<Word> countedWords = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : wordOccurrences.entrySet()) {
+            countedWords.add(
+                    new Word()
+                            .setPage(page)
+                            .setWord(entry.getKey())
+                            .setOccurrences(entry.getValue())
+            );
+            logger.info("{}: {}", entry.getKey(), entry.getValue());
+        }
+        return countedWords;
     }
 }
